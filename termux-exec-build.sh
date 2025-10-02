@@ -26,6 +26,7 @@ make packaging-debian-build
 
 ls
 ls build
-ls build/output
+ls build/output/tmp
+ls build/output/usr
 
-cp build/output/* "/workspace/out"
+cp build/output/packaging/* "/workspace/out"
