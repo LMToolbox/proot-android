@@ -1,0 +1,34 @@
+name: Proot Build
+on: 
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v5
+    
+    - name: Set up Android NDK
+      id: setup-ndk
+      uses: nttld/setup-ndk@v1
+      with:
+        ndk-version: r28c
+      
+    - name: Set up Ubuntu
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential make tar gzip dos2unix
+
+    - name: Build Proot
+      env:
+        ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+      run: |
+        chmod +x ./build.sh
+        ./build.sh
+
+    - name: Archive build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: proot-binaries
+        path: ./packages
