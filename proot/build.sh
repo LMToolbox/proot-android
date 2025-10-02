@@ -3,7 +3,8 @@
 set -e
 shopt -s nullglob
 
-. ../config
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+. "$SCRIPT_DIR/../config"
 
 cd "$BUILD_DIR"
 

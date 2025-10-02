@@ -2,7 +2,8 @@
 
 set -e
 
-. ./config
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+. "$SCRIPT_DIR/config"
 
 if [ -d "termux-exec-package-$TERMUX_EXEC_V" ] ; then exit 0 ; fi
 wget -O - https://github.com/termux/termux-exec-package/archive/v${TERMUX_EXEC_V}.tar.gz | tar -xzv
