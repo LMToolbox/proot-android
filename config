@@ -1,10 +1,8 @@
 PROOT_V='0.15_release'
-# TALLOC_V='2.1.14'
 TALLOC_V='2.4.3'
+API=35
 
-# `pre5' is for Android API < 21 where we can't _FILE_OFFSET_BITS=64 at least
-
-ARCHS='aarch64 armv7a armv7a-pre5 x86_64 i686 i686-pre5'
+ARCHS='aarch64 armv7a x86_64 i686'
 
 BASE_DIR="$PWD"
 
@@ -22,11 +20,6 @@ set-arch() {
 	if [ "$MARCH" != "$1" ]
 	then SUBARCH="${1#*-}"
 	else SUBARCH=''
-	fi
-
-	if [ "$SUBARCH" == 'pre5' ]
-	then API=16
-	else API=35
 	fi
 
 	INSTALL_ROOT="$BUILD_DIR/root-$ARCH/root"
