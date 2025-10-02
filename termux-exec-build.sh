@@ -23,4 +23,4 @@ export TERMUX_APP__PACKAGE_NAME=$PKGNAME TERMUX__ROOTFS=/data/data/$PKGNAME/file
 
 make
 
-cp build/output/usr/lib/libtermux-exec.so "/workspace/out"
+cp build/output/usr/lib/* "/workspace/out"
