@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        arch: [aarch64, armv7a, x86_64, i686]
+        arch: [aarch64, arm, x86_64, i686]
     steps:
     - name: Checkout repository
       uses: actions/checkout@v5
