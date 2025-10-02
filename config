@@ -1,6 +1,6 @@
 PROOT_V='0.15_release'
 TALLOC_V='2.4.3'
-TERMUX_EXEC_V='2.4.0'
+TERMUX_EXEC_V='2.3.0'
 API=35
 
 PKGNAME='org.lukemech.lmtoolbox'
