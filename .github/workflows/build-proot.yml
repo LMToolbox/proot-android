@@ -50,7 +50,6 @@ jobs:
         mkdir -p ./out
         docker run --rm --privileged \
           -v ${{ github.workspace }}:/workspace \
-          -w /home/build \
           termux/termux-docker:${{ matrix.arch }} \
           bash -c "
             apt update && pkg install -y clang git make termux-create-package termux-core wget
