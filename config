@@ -1,7 +1,9 @@
 PROOT_V='0.15_release'
 TALLOC_V='2.4.3'
+TERMUX_EXEC_V='2.4.0'
 API=35
 
+PKGNAME='org.lukemech.lmtoolbox'
 ARCHS='aarch64 armv7a x86_64 i686'
 
 BASE_DIR="$PWD"
