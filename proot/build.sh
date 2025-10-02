@@ -22,6 +22,8 @@ cd "$BUILD_DIR/talloc-$TALLOC_V"
 DEF_CFLAGS="$CFLAGS"
 
 for ARCH in $ARCHS; do
+  set-arch $ARCH
+
   FILE_OFFSET_BITS='OK'
   export CFLAGS="$DEF_CFLAGS"
   make distclean || true
