@@ -22,11 +22,7 @@ cd "termux-exec-package-$TERMUX_EXEC_V"
 export TERMUX_APP__PACKAGE_NAME=$PKGNAME TERMUX__ROOTFS=/data/data/$PKGNAME/files
 
 make
-make packaging-debian-build
 
-ls
-ls build
-ls build/output/tmp
-ls build/output/usr
+zip -r9D "./termux-exec-$TERMUX_EXEC_V-$ARCH.zip" ./build/output/*
 
-cp build/output/packaging/* "/workspace/out"
+cp termux-exec-$TERMUX_EXEC_V-$ARCH.zip "/workspace/out"
