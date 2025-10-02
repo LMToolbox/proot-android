@@ -14,7 +14,7 @@ fi
 
 # Get proot
 if [ ! -d "proot-$PROOT_V" ]; then
-  wget -O - "https://github.com/termux/proot/archive/v$PROOT_V.tar.gz" | tar -xzv
+  wget -O - "https://github.com/termux/proot/archive/$PROOT_V.tar.gz" | tar -xzv
 fi
 
 # Make talloc static
