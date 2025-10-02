@@ -52,7 +52,7 @@ jobs:
           -v ${{ github.workspace }}:/workspace \
           termux/termux-docker:${{ matrix.arch }} \
           bash -c "
-            apt update && pkg install -y clang git make termux-create-package wget
+            apt update && pkg install -y clang git make termux-create-package wget zip
             /workspace/termux-exec-build.sh
           "
         ls ./out
