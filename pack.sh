@@ -12,6 +12,6 @@ echo "For $ARCH:"
 
 set-arch $ARCH
 
-tar -czvf "$PKG_DIR/proot-android-$ARCH.tar.gz" -C "$INSTALL_ROOT/.." root
+tar -cvf "$PKG_DIR/proot-android-$ARCH.tar" -C "$INSTALL_ROOT/root" .
 
 done
