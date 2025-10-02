@@ -76,7 +76,7 @@ for ARCH in $ARCHS; do
   export CFLAGS="-I$STATIC_ROOT/include -Werror=implicit-function-declaration"
   export LDFLAGS="-L$STATIC_ROOT/lib"
   export PROOT_UNBUNDLE_LOADER='../libexec/proot'
-x
+
   make distclean || true
   make V=1 "PREFIX=$INSTALL_ROOT" install
   make distclean || true
