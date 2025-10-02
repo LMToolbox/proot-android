@@ -12,6 +12,7 @@ cd "termux-exec-package-$TERMUX_EXEC_V"
 
 export TERMUX_APP__PACKAGE_NAME=$PKGNAME TERMUX__ROOTFS=/data/data/$PKGNAME/files
 
+make
 make packaging-debian-build
 
 ls
