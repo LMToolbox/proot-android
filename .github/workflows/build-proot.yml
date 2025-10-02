@@ -48,6 +48,7 @@ jobs:
     - name: Build termux-exec
       run: |
         mkdir -p ./out
+        sudo chown -R 1000:1000 ./out
         docker run --rm --privileged \
           -v ${{ github.workspace }}:/workspace \
           termux/termux-docker:${{ matrix.arch }} \

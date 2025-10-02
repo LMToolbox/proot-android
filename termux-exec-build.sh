@@ -23,6 +23,6 @@ export TERMUX_APP__PACKAGE_NAME=$PKGNAME TERMUX__ROOTFS=/data/data/$PKGNAME/file
 
 make
 
-zip -r9D "./termux-exec-$TERMUX_EXEC_V-$ARCH.zip" ./build/output/*
+zip -r9D "./termux-exec-$TERMUX_EXEC_V.zip" ./build/output/*
 
-cp termux-exec-$TERMUX_EXEC_V-$ARCH.zip "/workspace/out"
+cp termux-exec-$TERMUX_EXEC_V.zip "/workspace/out"
