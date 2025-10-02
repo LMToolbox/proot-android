@@ -1,4 +1,4 @@
-PROOT_V='0.15_release'
+PROOT_V='eca2225f3a3ebacfb814dba411c1ef967ebe6420'
 TALLOC_V='2.4.3'
 TERMUX_EXEC_V='2.4.0'
 TERMUX_CORE_V='0.4.0'
