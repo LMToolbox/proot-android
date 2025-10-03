@@ -1,0 +1,44 @@
+name: Build Alpine Rootfs
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-rootfs:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        arch: [amd64, arm64, arm/v7, 386]  # Note: Docker architecture aliases
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Build container and export rootfs for ${{ matrix.arch }}
+        run: |
+          ARCH="${{ matrix.arch }}"
+          IMAGE="alpine:latest"
+
+          # Normalize arch name for filename
+          FILENAME=$(echo "$ARCH" | tr '/' '_')
+
+          echo ">> Running rootfs export for $ARCH"
+
+          docker run --rm --platform linux/$ARCH \
+            -v ${{ github.workspace }}:/output \
+            alpine:latest /bin/sh -c "
+              apk add --no-cache alpine-base;
+              mkdir -p /rootfs;
+              cp -a /bin /etc /lib /sbin /usr /var /rootfs/;
+              cd /rootfs;
+              tar -czf /output/alpine-rootfs-$FILENAME.tar.gz .
+            "
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: alpine-rootfs-${{ matrix.arch }}
+          path: alpine-rootfs-*.tar.gz
