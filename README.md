@@ -16,3 +16,8 @@ How to build:
  - Run `./build.sh`
 
 See https://github.com/green-green-avk/proot for more info.
+
+# TODO:
+- https://github.com/LMToolbox/proot (build proot binaries)
+- https://github.com/LMToolbox/rootfs (build rootfs for proot)
+- https://github.com/RohitKushvaha01/ReTerminal (include necessary things in https://github.com/LMToolbox/android-app)
