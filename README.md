@@ -20,4 +20,4 @@ See https://github.com/green-green-avk/proot for more info.
 # TODO:
 - https://github.com/LMToolbox/proot (build proot binaries)
 - https://github.com/LMToolbox/rootfs (build rootfs for proot)
-- https://github.com/RohitKushvaha01/ReTerminal (include necessary things in https://github.com/LMToolbox/android-app)
+- https://github.com/RohitKushvaha01/ReTerminal (include necessary things in https://github.com/LMToolbox/android-app) (https://github.com/RohitKushvaha01/ReTerminal/blob/main/core/main/src/main/java/com/rk/terminal/ui/screens/terminal/MkSession.kt)
