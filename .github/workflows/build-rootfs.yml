@@ -1,4 +1,4 @@
-orname: Build Alpine Rootfs
+name: Build Alpine Rootfs
 
 on:
   workflow_dispatch:
@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        arch: [amd64, arm64, arm/v7, 386]  # Note: Docker architecture aliases
+        arch: [amd64, arm64, arm/v7, 386]
 
     steps:
       - name: Checkout
@@ -21,27 +21,25 @@ jobs:
         id: normalize
         run: |
           ARCH="${{ matrix.arch }}"
-          FILENAME=$(echo "$ARCH" | tr '/' '_')
-          echo "filename=alpine-rootfs-$FILENAME" >> "$GITHUB_OUTPUT"
+          FILENAME="alpine-rootfs-$(echo "$ARCH" | tr '/' '_')"
+          echo "filename=$FILENAME" >> "$GITHUB_OUTPUT"
 
       - name: Build container and export rootfs for ${{ matrix.arch }}
         run: |
           ARCH="${{ matrix.arch }}"
-          IMAGE="alpine:latest"
-
-          # Normalize arch name for filename
           FILENAME="${{ steps.normalize.outputs.filename }}.tar.gz"
 
           echo ">> Running rootfs export for $ARCH"
+          echo ">> Output file: $FILENAME"
 
-          docker run --rm --platform linux/$ARCH \
+          docker run --rm --platform=linux/$ARCH \
             -v ${{ github.workspace }}:/output \
             alpine:latest /bin/sh -c "
               apk add --no-cache alpine-base;
               mkdir -p /rootfs;
               cp -a /bin /etc /lib /sbin /usr /var /rootfs/;
               cd /rootfs;
-              tar -czf /output/alpine-rootfs-$FILENAME.tar.gz .
+              tar -czf /output/$FILENAME .
             "
 
       - name: Upload artifact
